@@ -4,16 +4,7 @@ Linked list using python
 
 
 # Every linked list has nodes that has its own data and a reference to the next node
-class Node:
 
-    # Constructor method takes data and next node
-    def __init__(self, data=None, next=None):
-        self.data = data
-        self.next = next
-
-    # Returns data when the instance object is called
-    def __repr__(self):
-        return self.data
 
 
 class LinkedList:
