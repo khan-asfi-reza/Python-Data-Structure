@@ -1,92 +1,45 @@
-# Stack implementation using a linked list.
-# Node class
-from Nodes.nodes import QueueNode as Node
+# Queue
+import random
+import string
+import sys
+import time
 
 
-class Stack:
-    class EmptyStackError(Exception):
-        def __init__(self, message="Peeking from an empty stack"):
-            self.message = message
-            super().__init__(self.message)
+class Queue:
+    # Create Queue
+    def __init__(self):
+        self.__queue = []
 
-    # Initialize Stack using multiple data
-    def __create(self, args):
-        current = None
-        for each in args:
-            node = Node(each)
-            self.size += 1
-            if each == args[0]:
-                self.head = node
-            else:
-                current.next = node
-            current = node
+    # Modifies the whole new Queue
+    def modify_queue(self, q):
+        self.__queue = q
 
-    # Initializing a stack.
-    # Use a dummy node, which is
-    # easier for handling edge cases.
-    def __init__(self, *args):
-        self.head = None
-        self.size = 0
-        self.__create(list(args))
+    # Returns the queue
+    def get_queue(self):
+        return self.__queue
 
-    # String representation of the stack
-    def __str__(self):
-        cur = self.head
-        out = ""
-        while cur:
-            if cur.next is not None:
-                out += str(cur.value) + ", "
-            else:
-                out += str(cur.value)
-            cur = cur.next
-        return out
-
-        # Get the current size of the stack
-
-    def getSize(self):
-        return self.size
-
-    # Returns size of the queue
-    def __len__(self):
-        return self.size
-
-    # Check if the stack is empty
+    # Checks if queue is empty
     def isEmpty(self):
-        return self.size == 0
+        return len(self.__queue) == 0
 
-    # Get the top item of the stack
-    def peek(self):
+    # Inserts into Queue
+    def enqueue(self, val):
+        self.__queue.insert(0, val)
 
-        # Sanitary check to see if we
-        # are peeking an empty stack.
-        if self.isEmpty():
-            raise self.EmptyStackError()
-        return self.head.value
+    # Removes from queue
+    def dequeue(self):
+        return self.__queue.pop()
 
-    # Push a value into the stack.
-    def push(self, value):
-        node = Node(value)
-        node.next = self.head
-        self.head = node
-        self.size += 1
+    # Returns size
+    def size(self):
+        return len(self.__queue)
 
-    # Remove a value from the stack and return.
-    def pop(self):
-        if self.isEmpty():
-            raise self.EmptyStackError()
-        remove = self.head.next
-        self.head.next = self.head.next.next
-        self.size -= 1
-        return remove.value
+    # Prints queue
+    def print_queue(self):
+        print(self.__queue.__repr__())
 
-    # Make stack an array
-    def toList(self):
-        if self.isEmpty():
-            return []
-        else:
-            lst = []
-            current = self.head
-            while current:
-                lst.append(current.value)
-                current = current.next
-            return lst
+    def dequeue_item(self):
+        return self.__queue[-1]
+
+
+

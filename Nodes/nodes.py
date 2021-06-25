@@ -21,7 +21,7 @@ class QueueNode:
 
 # Dynamic Node for doubly linked list
 class DynamicNode:
-    def __init__(self, previous, next, value):
+    def __init__(self, data=None, previous=None, next=None):
         self.previous = previous
         self.next = next
-        self.value = value
+        self.data = data

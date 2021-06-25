@@ -1,4 +1,5 @@
-from LinkedList.linkedlist import LinkedList, Node
+from LinkedList.linkedlist import LinkedList
+from LinkedList.doublyLinkedList import DoublyLinkedList
 import unittest
 
 
@@ -35,5 +36,10 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(len(self.get_list_value()), len(LinkedList(*self.get_reverse_value())))
 
 
-if __name__ == '__main__':
-    unittest.main()
+class TestDoublyLinkedList(unittest.TestCase):
+    __list_val = [1, 2, 3, 4, 5, 6]
+
+    def test_doubly_linked_list(self):
+        dl = DoublyLinkedList()
+        dl.append(self.__list_val)
+        self.assertEqual(dl.length(), len(self.__list_val))
