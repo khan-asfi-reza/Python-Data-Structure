@@ -1,11 +1,11 @@
 from unittest import TestCase
-from Queue.queue import Queue
+from Queue.q import Q
 
 
 class TestQueue(TestCase):
 
     def test_stack(self):
-        q = Queue()
+        q = Q()
 
         self.assertEqual(q.isEmpty(), True)
 

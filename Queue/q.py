@@ -5,7 +5,7 @@ import sys
 import time
 
 
-class Queue:
+class Q:
     # Create Queue
     def __init__(self):
         self.__queue = []
